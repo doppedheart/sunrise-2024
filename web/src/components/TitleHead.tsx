@@ -1,7 +1,7 @@
 interface TitleHeadProps {
-  title: string;
-  totalTasks: number;
-  className: string;
+  readonly title: string;
+  readonly totalTasks: number;
+  readonly className: string;
 }
 export function TitleHead({ title, totalTasks, className}: TitleHeadProps) {
   return (

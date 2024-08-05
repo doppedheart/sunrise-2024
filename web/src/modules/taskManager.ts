@@ -57,7 +57,7 @@ export function deleteTask(taskId: number): void {
 
 export function getNonActiveTask(): Task[] {
     const activeTasks = tasks.filter(task => !task.completed);
-    let sortedTasks = activeTasks.sort((a, b) => a.group - b.group);
+    const sortedTasks = activeTasks.toSorted((a, b) => a.group - b.group);
     // return only rest of top group tasks
     const topGroupNumber = sortedTasks[0].group
     const filteredTasks = sortedTasks.filter((task)=> task.group!==topGroupNumber)

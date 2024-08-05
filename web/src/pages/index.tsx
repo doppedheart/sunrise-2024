@@ -1,12 +1,4 @@
 import Task from "@/model/Task";
-import {
-  completeTask,
-  getActiveTasks,
-  getAllTasks,
-  getCompletedTasks,
-  getNonActiveTask,
-} from "@/modules/taskManager";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Card from "@/components/Card";
 import { TitleHead } from "@/components/TitleHead";
@@ -33,7 +25,7 @@ export function Main() {
         <TitleHead title="To-Do" totalTasks={tasks.length} className="bg-[#D9D9D9]" />
         <div className="grid grid-cols-2 gap-3">
           {tasks.map((task) => (
-            <div>
+            <div key={task.id}>
               <Card
                 task={task}
                 disable={true}
@@ -51,7 +43,7 @@ export function Main() {
         />
         <div className="grid grid-cols-2 gap-3">
           {activeTasks.map((task) => (
-            <div>
+            <div key={task.id}>
               <Card
                 task={task}
                 disable={false}
@@ -69,7 +61,7 @@ export function Main() {
         />
         <div className="grid grid-cols-2 gap-3">
           {completedTasks.map((task) => (
-            <div>
+            <div key={task.id}>
               <Card task={task} handleCompleteTask={handleCompleteTask} />
             </div>
           ))}

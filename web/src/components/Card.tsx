@@ -1,16 +1,14 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Task from "@/model/Task";
 import { CardHeader } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
-import { completeTask } from "@/modules/taskManager";
 
-export default function OutlinedCard({task,disable,handleCompleteTask}: {task: Task,disable?: boolean,handleCompleteTask: (title: string) => void}) {
+export default function OutlinedCard({task,disable,handleCompleteTask}: {readonly task: Task,readonly disable?: boolean,handleCompleteTask: (title: string) => void}) {
   return (
     <Box sx={{ maxWidth: 275 }}>
       <Card variant="outlined" sx={{ minHeight: 200 }}>
